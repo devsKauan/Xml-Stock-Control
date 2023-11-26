@@ -29,7 +29,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,8 +48,10 @@ namespace TrabalhoXML_AGRVAI.Forms
 
 
                 pro.Add(prod);
+
                 MessageBox.Show("Produto Salvo com Sucesso!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparCampos();
+
                 using (StreamWriter writer = new StreamWriter("estoque.xml"))
                 {
                     serialize.Serialize(writer, pro);

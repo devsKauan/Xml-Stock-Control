@@ -20,10 +20,10 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = tx_usuario.Text;
-            string password = mtx_senha.Text;
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            string nome = tx_usuario.Text;
+            string senha = mtx_senha.Text;
+            
+            if(string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(senha))
             {
                 MessageBox.Show("Por favor, insira nome de usuário e senha.");
                 return;
@@ -32,13 +32,13 @@ namespace TrabalhoXML_AGRVAI.Forms
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("clientes.xml");
 
-            XmlNode userNode = xmlDoc.SelectSingleNode($"//CadastroClientes[Nome='{username}']");
+            XmlNode userNode = xmlDoc.SelectSingleNode($"//CadastroClientes[Nome='{nome}']");
 
             if (userNode != null)
             {
-                string storedPassword = userNode.SelectSingleNode("Senha").InnerText;
+                string senhaxml = userNode.SelectSingleNode("Senha").InnerText;
 
-                if (password == storedPassword)
+                if (senha == senhaxml)
                 {
                    /* MessageBox.Show("Login bem-sucedido! Acesso concedido.");*/
                     TelaVenda venda= new TelaVenda();

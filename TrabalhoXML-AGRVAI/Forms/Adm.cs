@@ -54,5 +54,10 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             this.Close();
         }
+
+        private void Adm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
